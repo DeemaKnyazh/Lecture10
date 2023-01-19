@@ -2,6 +2,7 @@ package com.example.w23comp1008lhw2;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 
 public class Card {
 
@@ -18,7 +19,7 @@ public class Card {
 
     public Card(String suit, String faceName) {
         setSuit(suit);
-        this.faceName = faceName;
+        setFaceName(faceName);
     }
 
     public String getSuit() {
@@ -35,20 +36,37 @@ public class Card {
      */
 
     public void setSuit(String suit) {
+        suit = suit.toLowerCase();
+
+        //check for s in the final position of the string, if not add one
+        if(suit.charAt(suit.length()-1) != 's')
+            suit = suit+"s";
+
         List<String> validSuits = Arrays.asList("hearts", "clubs", "spades", "diamonds");
 
         //Test if the argument is in the list of valid suits
 
-        if(validSuits.contains(suit)) {
+        if(validSuits.contains(suit))
             this.suit = suit;
-        }
-        else {
+
+        else
             throw new IllegalArgumentException(suit + " was not in the list of " + validSuits);
-        }
+
     }
 
+    /**
+     * Validates the argument and sets the instance variable
+     * @param faceName "2", "3", "4", "5", "6", "7", "8", "9", "10", "jack", "queen", "king", "ace"
+     */
     public void setFaceName(String faceName) {
-        this.faceName = faceName;
+        List<String> validFaceNames = Arrays.asList("2", "3", "4", "5", "6", "7", "8", "9", "10", "jack", "queen", "king", "ace");
+
+        faceName = faceName.toLowerCase();
+
+        if (validFaceNames.contains(faceName))
+            this.faceName = faceName;
+        else
+            throw new IllegalArgumentException(faceName + " must be from the list " + validFaceNames);
     }
 
     @Override
