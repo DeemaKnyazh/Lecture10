@@ -6,5 +6,7 @@ public class Main {
         Card card1 = new Card("Heart","ace");
         System.out.println(card1);
 
+        System.out.println(card1 + " colour: "+card1.getColour());
+        System.out.println(card1.getCardValue());
     }
 }
