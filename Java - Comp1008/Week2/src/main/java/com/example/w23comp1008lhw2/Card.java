@@ -1,5 +1,8 @@
 package com.example.w23comp1008lhw2;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class Card {
 
     private String suit;
@@ -36,10 +39,12 @@ public class Card {
 
         //Test if the argument is in the list of valid suits
 
-        if(validSuits.contains(suit))
+        if(validSuits.contains(suit)) {
             this.suit = suit;
-        else
+        }
+        else {
             throw new IllegalArgumentException(suit + " was not in the list of " + validSuits);
+        }
     }
 
     public void setFaceName(String faceName) {
