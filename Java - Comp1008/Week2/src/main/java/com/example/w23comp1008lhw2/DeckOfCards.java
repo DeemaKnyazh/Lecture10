@@ -38,4 +38,13 @@ public class DeckOfCards {
             return deck.remove(0);
         return null;
     }
+
+    /**
+     * This method returns the number of card objects remaining in the deck
+     */
+    public int getNumOfCards(){
+        return deck.size();
+    }
+
+
 }

@@ -21,5 +21,6 @@ public class Main {
 
         System.out.println("Player 1:" + player1Hand);
         System.out.println("Player 2:" + player2Hand);
+        System.out.println("Cards left in the deck : " + deck.getNumOfCards());
     }
 }
