@@ -30,7 +30,7 @@ public class Card {
         return faceName;
     }
 
-    public List<String> getFaceNames(){
+    public static List<String> getFaceNames(){
         return Arrays.asList("2", "3", "4", "5", "6", "7", "8", "9", "10", "jack", "queen", "king", "ace");
     }
 
@@ -46,7 +46,7 @@ public class Card {
         if(suit.charAt(suit.length()-1) != 's')
             suit = suit+"s";
 
-        List<String> validSuits = Arrays.asList("hearts", "clubs", "spades", "diamonds");
+        List<String> validSuits = getValidSuits();
 
         //Test if the argument is in the list of valid suits
 
@@ -57,6 +57,14 @@ public class Card {
             throw new IllegalArgumentException(suit + " was not in the list of " + validSuits);
 
     }
+    /**This method returns a list of all the valid suits
+     * @return
+     */
+
+    public static List<String> getValidSuits(){
+        return Arrays.asList("hearts", "clubs", "spades", "diamonds");
+    }
+
 
     /**
      * Validates the argument and sets the instance variable
