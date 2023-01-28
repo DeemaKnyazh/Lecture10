@@ -37,6 +37,7 @@ public class Card {
     /**
      * Validates the argument and sets the instance variable
      * @param suit "hearts", "clubs", "spades", "diamonds"
+     *                 0        1        2          3
      */
 
     public void setSuit(String suit) {
