@@ -1,5 +1,7 @@
 package com.example.w23comp1008lhw2;
 
+import javafx.scene.image.Image;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
@@ -110,4 +112,12 @@ public class Card {
         return indexPosition+2;
     }
 
+    /**
+     * This method return an Image object to represent the card
+     */
+
+    public Image getImage(){
+        String imageName = "images/" + faceName + "_of_" + suit + ".png";
+        return new Image(Card.class.getResourceAsStream(imageName));
+    }
 }
