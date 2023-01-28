@@ -1,6 +1,8 @@
 package com.example.w23comp1008lhw2;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 public class DeckOfCards {
@@ -46,5 +48,7 @@ public class DeckOfCards {
         return deck.size();
     }
 
-
+    public void shuffle(){
+        Collections.shuffle(deck);
+    }
 }
