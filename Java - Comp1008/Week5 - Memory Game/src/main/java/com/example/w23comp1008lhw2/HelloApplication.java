@@ -14,7 +14,7 @@ import java.io.IOException;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("card-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("memory-game-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Card Viewer");
         stage.setScene(scene);
