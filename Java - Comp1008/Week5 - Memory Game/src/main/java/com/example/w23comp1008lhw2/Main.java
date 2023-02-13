@@ -7,16 +7,12 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-//"extends" means that we are creating a custom version of the Application class
-//We inherit all the of the methods and instance variables from the Application class
-//anc can add our customer components to it
-
-public class HelloApplication extends Application {
+public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("memory-game-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("memory-game-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Card Viewer");
+        stage.setTitle("Memory Game");
         stage.setScene(scene);
         stage.show();
     }
