@@ -1,7 +1,8 @@
 package com.example.w23comp1008lhw2;
 
-public class MemoryCard extends Card{
+import com.example.w23comp1008lhw2.Card;
 
+public class MemoryCard extends Card {
     private boolean matched;
 
     public MemoryCard(String suit, String faceName) {
@@ -17,11 +18,12 @@ public class MemoryCard extends Card{
         this.matched = matched;
     }
 
-    public boolean isSameCard(MemoryCard otherCard){
-
+    public boolean isSameCard(MemoryCard otherCard)
+    {
         if (this.getCardValue() != otherCard.getCardValue())
             return false;
-        if (this.getSuit().equals(otherCard.getSuit()))
+
+        if (!this.getSuit().equals(otherCard.getSuit()))
             return false;
 
         return true;
