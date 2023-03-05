@@ -26,7 +26,7 @@ public class CardViewController implements Initializable {
         imageView.setImage(card.getImage());
     }
 
-    @Override
+
     public void initialize(URL url, ResourceBundle resourceBundle) {
         deck = new DeckOfCards();
         deck.shuffle();

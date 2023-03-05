@@ -10,6 +10,10 @@ public class MemoryCard extends Card {
         this.matched = false;
     }
 
+    /**
+     * This method returns true if the card has been matched with another card
+     * @return boolean (true or false)
+     */
     public boolean isMatched() {
         return matched;
     }
@@ -20,12 +24,7 @@ public class MemoryCard extends Card {
 
     public boolean isSameCard(MemoryCard otherCard)
     {
-        if (this.getCardValue() != otherCard.getCardValue())
-            return false;
-
-        if (!this.getSuit().equals(otherCard.getSuit()))
-            return false;
-
-        return true;
+        return (this.getSuit().equals(otherCard.getSuit()) &&
+                this.getFaceName().equals(otherCard.getFaceName()));
     }
 }
