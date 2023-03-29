@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.example</groupId>
-    <artifactId>W23COMP1008LHW2</artifactId>
+    <artifactId>COMP1008-Assignment2-DmitryKnyazhevskiy</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>W23COMP1008LHW2</name>
+    <name>COMP1008-Assignment2-DmitryKnyazhevskiy</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -38,13 +38,6 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
-
-        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.31</version>
-        </dependency>
     </dependencies>
 
     <build>
@@ -67,7 +60,8 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>com.example.w23comp1008lhw2/com.example.w23comp1008lhw2.Main
+                            <mainClass>
+                                com.example.comp1008assignment2dmitryknyazhevskiy/com.example.comp1008assignment2dmitryknyazhevskiy.HelloApplication
                             </mainClass>
                         </configuration>
                     </execution>
