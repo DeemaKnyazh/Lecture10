@@ -1,0 +1,85 @@
+<!--Pages used for working the api
+https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+https://www.weatherapi.com/docs/#intro-request
+https://api-ninjas.com/api/geocoding
+
+Made by Dmitry Knyazhevskiy for Comp 1073
+-->
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping list example</title>
+    <link rel="stylesheet" href="./CSS/style.css">
+</head>
+
+<body>
+    <div class="form">
+        <label for="city">Enter the City:</label>
+        <input type="text" name="city" id="city">
+        <label for="country">Enter the Country:</label>
+        <input type="text" name="country" id="country">
+    </div>
+    <div class="buttonDiv">
+        <button id="btn" class="button">Get the Temperature</button>
+    </div>
+    <div class="info">
+        <div id="temp"></div>
+    </div>
+    <script>
+        var city = document.getElementById("city");
+        var country = document.getElementById("country");
+        var button = document.getElementById("btn");
+
+        button.onclick = function () {
+            /*First part takes the data entered by the user into the city and country fields and sends it to a geocoding api to convert that into coordinates*/
+            tempCity = city.value;
+            tempCountry = country.value;
+            const url1 = 'https://api.api-ninjas.com/v1/geocoding?city=' + tempCity + '&country=' + tempCountry;
+
+            var lat = 0;
+            var long = 0;
+
+            const response = fetch(url1, {
+                method: "GET",
+                headers: { 'Content-Type': 'application/json', 'X-Api-Key': 'ZtEj0DMc8MzMF/+sn8AlMw==VQiAXyJHaJGSYtzN' },
+            }).then(function (result) {
+                return result.json();
+            }).then(function (json) {
+                /*Parses the Json and extracts the latitude and longitude from it, then calls the function that calls the next api*/
+                let obj = (json)[0];
+                console.log(obj);
+                long = obj.longitude;
+                lat = obj.latitude;
+                console.log(lat);
+                console.log(long);
+                weather(lat, long);
+            });
+
+            /*Using the lat/long from the last api call, it calls the next api to convert those coordinates into the weather in that area */
+            function weather(lat, long) {
+                const url2 = 'https://api.weatherapi.com/v1/current.json?key=641d22f13d534328b22202616231204&q=' + lat + ',' + long + '&aqi=no';
+                const weather = fetch(url2, {
+                    method: "GET",
+                    headers: { 'Content-Type': 'application/json' },
+                }).then(function (result) {
+                    return result.json();
+                }).then(function (json) {
+                    /*Parses the Json and extracts the temperature from it, then calls the changeWeather function to display the temperature on the page*/
+                    console.log(json);
+                    let weather = ((json)['current']);
+                    console.log(weather);
+                    console.log(weather.temp_c);
+                    changeWeather(weather.temp_c);
+                });
+            }
+
+            /*Edits a div to show the temperature and the location you were checking*/
+            function changeWeather(temp) {
+                document.getElementById("temp").innerHTML = "The temperature is " + temp + " degrees celsius in " + city.value + ", " + country.value;
+            }
+        };
+    </script>
+</body>
